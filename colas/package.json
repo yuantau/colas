@@ -1,6 +1,6 @@
 {
   "name": "colas",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Build electron app using create-react-app",
   "bin": "bin/index.js",
   "author": "yuantao",
