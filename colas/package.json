@@ -5,6 +5,10 @@
   "bin": "bin/index.js",
   "author": "yuantao",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuantau/colas.git"
+  },
   "dependencies": {
     "less": "^3.11.1",
     "less-loader": "^6.1.0"
