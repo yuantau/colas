@@ -1,0 +1,12 @@
+{
+  "name": "colas",
+  "version": "1.0.4",
+  "description": "Build electron app using create-react-app",
+  "bin": "bin/index.js",
+  "author": "yuantao",
+  "license": "MIT",
+  "dependencies": {
+    "less": "^3.11.1",
+    "less-loader": "^6.1.0"
+  }
+}
