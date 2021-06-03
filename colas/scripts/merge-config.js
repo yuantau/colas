@@ -86,6 +86,23 @@ module.exports = function (config, isElectron) {
   }
   let oneOfNode = config.module.rules.find((n) => !!n.oneOf);
   const len = oneOfNode.oneOf.length;
+
+  let enableCSSURL = false;
+  if (customConfig) {
+    enableCSSURL = !!customConfig.enableCSSURL;
+    delete customConfig.enableCSSURL;
+  }
+
+  const cssLoaderModule = require.resolve("css-loader");
+  if (!enableCSSURL) {
+    oneOfNode.oneOf.forEach((item) => {
+      if (item.use && Array.isArray(item.use)) {
+        const cssLoader = item.use.find((n) => n.loader === cssLoaderModule);
+        cssLoader && (cssLoader.options.url = false);
+      }
+    });
+  }
+
   oneOfNode.oneOf.splice(
     len - 1,
     0,
@@ -96,6 +113,7 @@ module.exports = function (config, isElectron) {
         {
           importLoaders: 3,
           sourceMap: false,
+          url: enableCSSURL,
         },
         "less-loader"
       ),
@@ -110,6 +128,7 @@ module.exports = function (config, isElectron) {
           modules: {
             getLocalIdent: getCSSModuleLocalIdent,
           },
+          url: enableCSSURL,
         },
         "less-loader"
       ),

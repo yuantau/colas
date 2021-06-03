@@ -50,3 +50,6 @@ module.exports = {
   },
 };
 ```
+
+v1.2 对于 css-loader 升级后默认处理 url 路径(https://github.com/facebook/create-react-app/issues/9870)进行了一些修补，使之与以前版本兼容
+如果想开启 在 webpack.config.js 添加 `enableCSSURL:true`
